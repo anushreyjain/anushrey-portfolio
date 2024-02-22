@@ -36,15 +36,20 @@ const Skills = () => {
   }, []);
 
   return (
-    <section ref={ref} id="skills" className="w-full px-20 text-center pt-32">
+    <section
+      ref={ref}
+      id="skills"
+      className="w-full px-10 lg:px-20 text-center pt-20 lg:pt-32"
+    >
       <SectionHeading title="Skills 🥷🏼" />
-      <div className="flex flex-wrap justify-center gap-x-10 gap-y-10 items-center w-full py-20">
+      <div className="grid lg:grid-cols-7 grid-cols-3 self-center items-stretch gap-x-5 gap-y-5 lg:gap-x-10 lg:gap-y-10 w-full py-20">
         {skillsData.map((item, index) => (
           <SkillCircle
             key={index}
             variants={fadeInAnimationVariants}
             initial={fadeInAnimationVariants.initial}
-            whileInView={fadeInAnimationVariants.animate}pa
+            whileInView={fadeInAnimationVariants.animate}
+            pa
             index={index}
             item={item}
             gradientAngles={gradientAngles}

@@ -21,10 +21,10 @@ const Header = () => {
         <div className="w-[2.5rem] h-[2.5rem] sm:w-[3.875rem] sm:h-[5.375rem] relative flex-shrink-0">
           <Image alt="logo" src={"/logo.svg"} layout="fill" />
         </div>
-        <div className="hamburger sm:hidden">
+        <div className="hamburger lg:hidden">
           <p className="text-sm">Menu</p>
         </div>
-        <ul className="sm:flex hidden flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
+        <ul className="lg:flex hidden flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <li
               className="h-3/4 flex items-center justify-center relative"
