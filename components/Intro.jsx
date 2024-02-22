@@ -14,6 +14,7 @@ import { HiDownload } from "react-icons/hi";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/ActiveSectionContextProvider";
 import { FaBehance } from "react-icons/fa";
+import SocialLinksContainer from "./SocialLinksContainer";
 
 const Intro = () => {
   const { ref } = useSectionInView("Home", 0.5);
@@ -139,34 +140,7 @@ const Intro = () => {
           </a>
         </div>
 
-        <div className="flex items-center gap-3">
-          <a
-            href=""
-            className="flex items-center gap-2 bg-white p-4 text-gray-700 rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60"
-          >
-            <BsLinkedin />
-          </a>
-
-          <a
-            href=""
-            className="flex items-center gap-2 bg-white p-4 text-gray-700 rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60"
-          >
-            <BsGithub />
-          </a>
-
-          <a
-            href=""
-            className="flex items-center gap-2 bg-white p-4 text-gray-700 rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60"
-          >
-            <BsInstagram />
-          </a>
-          <a
-            href=""
-            className="flex items-center gap-2 bg-white p-4 text-gray-700 rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10 dark:text-white/60"
-          >
-            <FaBehance />
-          </a>
-        </div>
+        <SocialLinksContainer className="flex items-center gap-3" />
       </motion.div>
     </section>
   );

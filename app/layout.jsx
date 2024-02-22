@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
         </div>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Header />
             {children}
             <Toaster position="top-right" />
             {/* <ThemeSwitch /> */}

@@ -42,7 +42,7 @@ const Skills = () => {
       className="w-full px-10 lg:px-20 text-center pt-20 lg:pt-32"
     >
       <SectionHeading title="Skills 🥷🏼" />
-      <div className="grid lg:grid-cols-7 grid-cols-3 self-center items-stretch gap-x-5 gap-y-5 lg:gap-x-10 lg:gap-y-10 w-full py-20">
+      <div className="grid lg:grid-cols-7 grid-cols-3 self-center items-stretch gap-x-5 gap-y-5 lg:gap-x-10 lg:gap-y-10 w-full pt-16 sm:py-20">
         {skillsData.map((item, index) => (
           <SkillCircle
             key={index}

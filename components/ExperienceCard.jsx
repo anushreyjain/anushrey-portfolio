@@ -8,7 +8,7 @@ const ExperienceCard = ({ item, ...property }) => {
           {item.company}
         </h2>
 
-        <h2 className="text-xl sm:text-2xl font-medium text-zinc-400 mt-3">
+        <h2 className="text-xl sm:text-2xl font-medium text-zinc-400 mt-1 sm:mt-3">
           {item.profile}
         </h2>
         <h2 className="text-sm sm:text-base font-medium text-zinc-400">

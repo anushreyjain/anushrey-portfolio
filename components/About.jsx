@@ -11,13 +11,8 @@ const About = () => {
   const { ref } = useSectionInView("About");
 
   return (
-    <motion.section
+    <section
       className="text-center relative overflow-hidden leading-8 sm:px-20 py-20 sm:py-0 sm:h-screen rounded-[5vw] bg-[#0f0f12] w-full"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        delay: 0.175,
-      }}
       ref={ref}
       id="about"
     >
@@ -25,7 +20,18 @@ const About = () => {
       <div className="h-full text-center px-10 sm:px-40 flex flex-col justify-center">
         <SectionHeading title={"About Me 👨🏻‍💼 "} className="mb-7 sm:mb-10" />
 
-        <p className="mb-3 text-base sm:text-2xl leading-relaxed sm:leading-loose">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            delay: 0.2,
+            ease: "linear",
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="mb-3 text-base sm:text-2xl leading-relaxed sm:leading-loose"
+        >
           I am a creative{" "}
           <span className="font-semibold"> Frontend Engineer </span> with an
           experience of <span className="font-semibold"> 3.5 Years</span>,
@@ -45,7 +51,7 @@ const About = () => {
           designing user-friendly interfaces and have a keen eye for detail,
           ensuring that every pixel is in place to deliver a seamless user
           experience.
-        </p>
+        </motion.p>
         <div className="w-full flex items-center mt-10 sm:mt-20 justify-between sm:justify-center sm:gap-36 ">
           {stats.map((item, index) => (
             <StatusCard
@@ -56,7 +62,7 @@ const About = () => {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
