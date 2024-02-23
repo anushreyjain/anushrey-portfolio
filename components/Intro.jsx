@@ -129,7 +129,7 @@ const Intro = () => {
           <a
             href="/Anushrey_Jain_Resume.pdf"
             download
-            className="flex w-fit items-center gap-2 bg-white px-7 py-3 rounded-full outline-none hover:scale-[1.05] active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10"
+            className="flex w-fit items-center gap-2  px-7 py-3 rounded-full outline-none hover:scale-[1.05] active:scale-105 transition group cursor-pointer border border-black/10 bg-white/10"
           >
             Download CV{" "}
             <HiDownload className="opacity-70 group-hover:translate-y-0.5 transition" />

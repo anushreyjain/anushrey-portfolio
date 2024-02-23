@@ -7,10 +7,14 @@ import { sendEmail } from "@/actions/sendEmail";
 import SubmitButton from "./SubmitButton";
 import toast from "react-hot-toast";
 import SocialLinksContainer from "./SocialLinksContainer";
+import { useState } from "react";
 
 const Contact = () => {
   const { ref } = useSectionInView("Let's talk", 0.5);
-
+  const [onValue, setOnValue] = useState({
+    senderEmail: "",
+    senderMessage: "",
+  });
   return (
     <motion.section
       id="contact"
@@ -32,7 +36,7 @@ const Contact = () => {
       <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-20 lg:gap-36 w-full lg:py-20 py-10 h-full">
         <div>
           <p className="mt-3 text-white/80 lg:text-base text-sm">
-            Please context me directly at{" "}
+            Please contact me directly at{" "}
             <a
               className="hover:text-zinc-400 transition-all underline font-medium"
               href="mailto:anushrey1998@gmail.com"
@@ -49,24 +53,35 @@ const Contact = () => {
                 toast.error(error);
                 return;
               }
-
               toast.success("Email sent succesfully");
               formData.get("senderEmail");
+              setOnValue({ senderEmail: "", senderMessage: "" });
             }}
-            className="mt-5 mb-10 sb:mb-0 flex flex-col dark:text-black/80"
+            className="mt-5 mb-10 sb:mb-0 flex flex-col text-black/80"
           >
             <input
               className="h-14 rounded-lg px-4 text-zinc-200 bg-zinc-800 bg-opacity-80 focus:bg-zinc-900 border border-transparent focus:border-zinc-700 transition-all outline-none"
               type="email"
               name="senderEmail"
+              value={onValue?.senderEmail}
               required
+              onChange={(e) =>
+                setOnValue((prev) => ({ ...prev, senderEmail: e.target.value }))
+              }
               maxLength={500}
               placeholder="Your email"
             />
             <textarea
               className="h-52 my-3 rounded-lg p-4 text-zinc-200 bg-zinc-800 bg-opacity-80 focus:bg-zinc-900 border border-transparent focus:border-zinc-700 transition-all outline-none"
               name="senderMessage"
+              value={onValue?.senderMessage}
               placeholder="Your message"
+              onChange={(e) =>
+                setOnValue((prev) => ({
+                  ...prev,
+                  senderMessage: e.target.value,
+                }))
+              }
               required
               maxLength={5000}
             />

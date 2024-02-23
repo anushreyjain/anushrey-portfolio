@@ -37,7 +37,7 @@ const Header = ({ setIsFullNavbar }) => {
             >
               <Link
                 className={clsx(
-                  "flex items-center w-full px-3 py-3 hover:text-gray-950 transition justify-center dark:text-gray-500  dark:hover:text-gray-300",
+                  "flex items-center w-full px-3 py-3 transition justify-center text-gray-500  hover:text-gray-300",
                   {
                     "!text-gray-200": activeSection === link.name,
                   }
