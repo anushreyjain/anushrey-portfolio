@@ -20,16 +20,16 @@ const Header = ({ setIsFullNavbar }) => {
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="z-[999] fixed top-0 w-full bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] px-4 sm:px-20"
+      className="z-[999] fixed top-0 w-full bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] px-4 lg:px-20 py-2 sm:py-1"
     >
-      <nav className="flex flex-row w-full py-2 sm:top-[1.7rem] sm:py-0 items-center justify-between">
-        <div className="w-[2.5rem] h-[2.5rem] sm:w-[3.875rem] sm:h-[5.375rem] relative flex-shrink-0">
+      <nav className="flex flex-row w-full py-2 lg:top-[1.7rem] lg:py-0 items-center justify-between">
+        <div className="w-[2.5rem] h-[2.5rem] lg:w-[3.875rem] lg:h-[5.375rem] relative flex-shrink-0">
           <Image alt="logo" src={"/logo.svg"} layout="fill" />
         </div>
         <div onClick={openNavbar} className="hamburger lg:hidden text-xl">
           <RxHamburgerMenu />
         </div>
-        <ul className="lg:flex hidden flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
+        <ul className="lg:flex hidden flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 lg:w-[initial] lg:flex-nowrap lg:gap-5">
           {links.map((link) => (
             <li
               className="h-3/4 flex items-center justify-center relative"

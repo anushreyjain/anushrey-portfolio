@@ -12,13 +12,13 @@ const About = () => {
 
   return (
     <section
-      className="text-center relative overflow-hidden leading-8 sm:px-20 py-20 sm:py-0 sm:h-screen rounded-[5vw] bg-[#0f0f12] w-full"
+      className="text-center relative overflow-hidden leading-8 lg:px-20 py-20 lg:py-0 lg:h-screen rounded-[5vw] bg-[#0f0f12] w-full"
       ref={ref}
       id="about"
     >
-      <div className="bg-opacity-20 absolute bottom-10 -left-[40%] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#E8CBC0]"></div>
-      <div className="h-full text-center px-10 sm:px-40 flex flex-col justify-center">
-        <SectionHeading title={"About Me 👨🏻‍💼 "} className="mb-7 sm:mb-10" />
+      <div className="bg-opacity-20 absolute bottom-10 -left-[40%] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] lg:w-[68.75rem] bg-[#E8CBC0]"></div>
+      <div className="h-full text-center px-10 md:px-20 lg:px-40 flex flex-col justify-center">
+        <SectionHeading title={"About Me 👨🏻‍💼 "} className="mb-7 lg:mb-10" />
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -30,7 +30,7 @@ const About = () => {
           viewport={{
             once: true,
           }}
-          className="mb-3 text-base sm:text-2xl leading-relaxed sm:leading-loose"
+          className="mb-3 text-base md:text-xl md:leading-relaxed lg:text-2xl leading-relaxed lg:leading-loose"
         >
           I am a creative{" "}
           <span className="font-semibold"> Frontend Engineer </span> with an
@@ -52,7 +52,7 @@ const About = () => {
           ensuring that every pixel is in place to deliver a seamless user
           experience.
         </motion.p>
-        <div className="w-full flex items-center mt-10 sm:mt-20 justify-between sm:justify-center sm:gap-36 ">
+        <div className="w-full flex items-center mt-10 lg:mt-20 justify-between md:justify-center md:gap-20 lg:gap-36 ">
           {stats.map((item, index) => (
             <StatusCard
               key={index}

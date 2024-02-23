@@ -27,9 +27,9 @@ const Intro = () => {
     >
       <div className="flex flex-col gap-1 items-center">
         {/* Mobile profile photo */}
-        <div className="sm:hidden">
+        <div className="lg:hidden">
           <motion.div
-            className="relative w-[5rem] h-[5rem]  mb-5"
+            className="relative w-[5rem] h-[5rem] mb-5"
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "5rem", opacity: 1 }}
             transition={{
@@ -55,7 +55,7 @@ const Intro = () => {
         <motion.h1
           initial={{ y: "-100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-xl sm:text-5xl font-medium"
+          className="text-xl md:text-3xl lg:text-5xl font-medium"
         >
           Hello 👋🏼, I&apos;m
         </motion.h1>
@@ -65,10 +65,10 @@ const Intro = () => {
             animate={{ y: 0, opacity: 1 }}
             className="flex relative"
           >
-            <h1 className="text-3xl sm:text-[4rem] font-semibold">
+            <h1 className="text-3xl md:text-5xl lg:text-[4rem] font-semibold">
               Anushrey Jain
             </h1>
-            <div className="w-5 h-5 sm:w-9 sm:h-9 absolute -top-[0.5rem] -left-[0.5rem]  sm:-top-[2rem] sm:-left-[0.5rem] rotate-12">
+            <div className="w-5 h-5 lg:w-9 lg:h-9 absolute -top-[0.5rem] -left-[0.5rem]  lg:-top-[2rem] lg:-left-[0.5rem] rotate-12">
               <Image
                 src={"/decorative-lines.svg"}
                 alt="decorative-lines"
@@ -76,7 +76,7 @@ const Intro = () => {
               />
             </div>
           </motion.div>
-          <div className="sm:flex items-center justify-center hidden">
+          <div className="lg:flex items-center justify-center hidden">
             <motion.div
               className="relative w-[6rem] h-[6rem]"
               initial={{ width: 0, opacity: 0 }}
@@ -103,7 +103,7 @@ const Intro = () => {
         <motion.h1
           initial={{ y: "-100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="sm:text-5xl font-medium"
+          className="md:text-3xl lg:text-5xl font-medium"
         >
           A Creative Frontend Engineer
         </motion.h1>
@@ -117,7 +117,7 @@ const Intro = () => {
           delay: 0.1,
         }}
       >
-        <div className="flex items-center flex-col sm:flex-row gap-3 text-sm sm:text-lg">
+        <div className="flex items-center flex-col lg:flex-row gap-3 text-sm lg:text-lg">
           <Link
             href={"#contact"}
             onClick={() => {
@@ -131,7 +131,7 @@ const Intro = () => {
           </Link>
 
           <a
-            href="/CV.pdf"
+            href="/Anushrey_Jain_Resume.pdf"
             download
             className="flex w-fit items-center gap-2 bg-white px-7 py-3 rounded-full outline-none hover:scale-[1.05] active:scale-105 transition group cursor-pointer border border-black/10 dark:bg-white/10"
           >

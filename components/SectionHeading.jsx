@@ -20,7 +20,7 @@ const SectionHeading = ({ title, ...property }) => {
           viewport={{
             once: true,
           }}
-          className="text-2xl sm:text-4xl font-semibold text-zinc-100 capitalize text-center"
+          className="text-2xl lg:text-4xl font-semibold text-zinc-100 capitalize text-center"
         >
           {title}{" "}
         </motion.h2>

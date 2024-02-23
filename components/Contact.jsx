@@ -15,7 +15,7 @@ const Contact = () => {
     <motion.section
       id="contact"
       ref={ref}
-      className="text-center py-20 sm:py-32 w-full px-10 sm:px-20 relative overflow-hidden"
+      className="text-center py-20 lg:py-32 w-full px-10 lg:px-20 relative overflow-hidden"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{
@@ -27,11 +27,11 @@ const Contact = () => {
     >
       <SectionHeading title={"Let's talk ✉️"} />
 
-      <div className="bg-opacity-20 -z-10 absolute -bottom-20 sm:right-[35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:right-[-33rem] lg:right-[-28rem] xl:right-[-20rem] 2xl:right:[-5rem] bg-[#636FA4]"></div>
+      <div className="bg-opacity-20 -z-10 absolute -bottom-20 sm:right-[35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] lg:w-[68.75rem] md:right-[-33rem] lg:right-[-28rem] xl:right-[-20rem] 2xl:right:[-5rem] bg-[#636FA4]"></div>
 
-      <div className="flex flex-col-reverse sm:flex-row items-center justify-center gap-20 sm:gap-36 w-full sm:py-20 py-10 h-full">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-20 lg:gap-36 w-full lg:py-20 py-10 h-full">
         <div>
-          <p className="mt-3 text-white/80 sm:text-base text-sm">
+          <p className="mt-3 text-white/80 lg:text-base text-sm">
             Please context me directly at{" "}
             <a
               className="hover:text-zinc-400 transition-all underline font-medium"
@@ -75,7 +75,7 @@ const Contact = () => {
         </div>
 
         <div className="">
-          <h3 className="text-xl sm:text-4xl">
+          <h3 className="text-xl lg:text-4xl">
             Do you have any <span className="font-semibold"> Questions, </span>{" "}
             <br />{" "}
             <span className="font-semibold">suggestions or feedback.</span>{" "}
