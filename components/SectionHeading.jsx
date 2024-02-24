@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { isDesktopOrLaptop } from "@/app/page";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 
 const SectionHeading = ({ title, ...property }) => {
+  const isDesktopOrLaptop = useMediaQuery('(min-width: 960px)');
+  
   return (
     <div className={`flex w-full justify-center ${property.className}`}>
       <div className="w-fit relative">

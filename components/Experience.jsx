@@ -6,9 +6,11 @@ import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import ExperienceCard from "./ExperienceCard";
 import { motion, useScroll } from "framer-motion";
-import { isDesktopOrLaptop } from "@/app/page";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const Experience = () => {
+  const isDesktopOrLaptop = useMediaQuery('(min-width: 960px)');
+
   const { ref } = useSectionInView("Experience", 0.3);
   const cardRef = useRef();
   const { scrollYProgress } = useScroll({

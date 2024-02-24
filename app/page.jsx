@@ -8,11 +8,8 @@ import Header from "@/components/Header";
 import Intro from "@/components/Intro";
 import Showcase from "@/components/Showcase";
 import Skills from "@/components/Skills";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export const isDesktopOrLaptop = window?.matchMedia(
-  "(min-width: 1024px)"
-).matches;
 
 export default function Home() {
   const [isFullNavbar, setIsFullNavbar] = useState(false);

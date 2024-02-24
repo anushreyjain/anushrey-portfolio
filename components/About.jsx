@@ -5,12 +5,14 @@ import SectionHeading from "./SectionHeading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import StatusCard from "./StatusCard";
-import { isDesktopOrLaptop } from "@/app/page";
 import { stats } from "@/lib/data";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 
 const About = () => {
   const { ref } = useSectionInView("About");
+
+  const isDesktopOrLaptop = useMediaQuery('(min-width: 960px)');
 
   return (
     <section
