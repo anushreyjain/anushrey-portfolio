@@ -71,9 +71,8 @@ const Intro = () => {
               <Image
                 src={"/decorative-lines.svg"}
                 alt="decorative-lines"
-                loading="lazy"
                 width={100}
-                property={true}
+                property='true'
                 height={100}
               />
             </div>
@@ -93,8 +92,7 @@ const Intro = () => {
                 src={"/anushrey.png"}
                 alt="photo"
                 quality={95}
-                property={true}
-                loading="lazy"
+                property='true'
                 width={100}
                 height={100}
                 className="rounded-full border-4 object-cover shadow-xl"
