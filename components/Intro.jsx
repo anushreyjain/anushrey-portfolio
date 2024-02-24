@@ -29,7 +29,7 @@ const Intro = () => {
         {/* Mobile profile photo */}
         <div className="lg:hidden">
           <motion.div
-            className="relative w-[5rem] h-[5rem] mb-5"
+            className="relative w-[5rem] h-[5rem] mb-5 flex items-center justify-center"
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: "5rem", opacity: 1 }}
             transition={{
@@ -42,8 +42,8 @@ const Intro = () => {
               src={"/anushrey.png"}
               alt="photo"
               quality={95}
-              priority={true}
-              layout="fill"
+              loading="lazy"
+              width={100} height={100}
               className="rounded-full border-4 object-cover shadow-xl"
             />
           </motion.div>
@@ -66,17 +66,18 @@ const Intro = () => {
             <h1 className="text-3xl md:text-5xl lg:text-[4rem] font-semibold">
               Anushrey Jain
             </h1>
-            <div className="w-5 h-5 lg:w-9 lg:h-9 absolute -top-[0.5rem] -left-[0.5rem]  lg:-top-[2rem] lg:-left-[0.5rem] rotate-12">
+            <div className="w-5 h-5 lg:w-9 lg:h-9 absolute -top-[0.5rem] -left-[0.5rem]  lg:-top-[2rem] lg:-left-[0.5rem] rotate-12 flex justify-center items-center">
               <Image
                 src={"/decorative-lines.svg"}
                 alt="decorative-lines"
-                layout="fill"
+                loading="lazy"
+                width={100} height={100}
               />
             </div>
           </motion.div>
           <div className="lg:flex items-center justify-center hidden">
             <motion.div
-              className="relative w-[6rem] h-[6rem]"
+              className="relative w-[6rem] h-[6rem] flex items-center justify-center"
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "6rem", opacity: 1 }}
               transition={{
@@ -89,8 +90,8 @@ const Intro = () => {
                 src={"/anushrey.png"}
                 alt="photo"
                 quality={95}
-                priority={true}
-                layout="fill"
+                loading="lazy"
+                width={100} height={100}
                 className="rounded-full border-4 object-cover shadow-xl"
               />
             </motion.div>

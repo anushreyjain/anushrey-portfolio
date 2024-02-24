@@ -26,10 +26,18 @@ const SkillCircle = ({
         }}
       >
         <div className="relative w-[1.5rem] h-[1.5rem] lg:w-[2rem] lg:h-[2rem] flex justify-center items-center">
-          <Image src={`/logo/${item.logo}.svg`} alt="logo" layout="fill" />
+          <Image
+            src={`/logo/${item.logo}.svg`}
+            alt="logo"
+            loading="lazy"
+            width={100}
+            height={100}
+          />
         </div>
       </div>
-      <h3 className="text-base lg:text-2xl font-medium text-zinc-400">{item.name}</h3>
+      <h3 className="text-base lg:text-2xl font-medium text-zinc-400">
+        {item.name}
+      </h3>
     </motion.div>
   );
 };

@@ -9,6 +9,10 @@ html {
   --color-zinc-950: #070709;
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar,
 .scrollbar::-webkit-scrollbar {
   width: 7px;

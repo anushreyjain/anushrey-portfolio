@@ -24,11 +24,13 @@ const SectionHeading = ({ title, ...property }) => {
         >
           {title}{" "}
         </motion.h2>
-        <div className="w-6 h-6 absolute -top-[0.8rem] -left-[1rem]">
+        <div className="w-6 h-6 absolute -top-[0.8rem] -left-[1rem] flex items-center justify-center">
           <Image
             src={"/decorative-lines.svg"}
             alt="decorative-lines"
-            layout="fill"
+            loading="lazy"
+            width={100}
+            height={100}
           />
         </div>
       </div>

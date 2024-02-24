@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/ActiveSectionContextProvider";
@@ -15,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en" >
       <body
         className={`${montserrat.className} relative bg-zinc-950 text-gray-50 text-opacity-90`}
       >

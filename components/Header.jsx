@@ -23,8 +23,8 @@ const Header = ({ setIsFullNavbar }) => {
       className="z-[999] fixed top-0 w-full bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] px-4 lg:px-20 py-2 sm:py-1"
     >
       <nav className="flex flex-row w-full py-2 lg:top-[1.7rem] lg:py-0 items-center justify-between">
-        <div className="w-[2.5rem] h-[2.5rem] lg:w-[3.875rem] lg:h-[5.375rem] relative flex-shrink-0">
-          <Image alt="logo" src={"/logo.svg"} layout="fill" />
+        <div className="w-[2.5rem] h-[2.5rem] lg:w-[3.875rem] lg:h-[5.375rem]  relative flex-shrink-0 flex justify-center items-center">
+          <Image alt="logo" src={"/logo.svg"} width={100} height={100} />
         </div>
         <div onClick={openNavbar} className="hamburger lg:hidden text-xl">
           <RxHamburgerMenu />
