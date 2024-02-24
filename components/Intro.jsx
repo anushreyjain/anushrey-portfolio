@@ -43,7 +43,8 @@ const Intro = () => {
               alt="photo"
               quality={95}
               loading="lazy"
-              width={100} height={100}
+              width={100}
+              height={100}
               className="rounded-full border-4 object-cover shadow-xl"
             />
           </motion.div>
@@ -71,7 +72,9 @@ const Intro = () => {
                 src={"/decorative-lines.svg"}
                 alt="decorative-lines"
                 loading="lazy"
-                width={100} height={100}
+                width={100}
+                property={true}
+                height={100}
               />
             </div>
           </motion.div>
@@ -90,8 +93,10 @@ const Intro = () => {
                 src={"/anushrey.png"}
                 alt="photo"
                 quality={95}
+                property={true}
                 loading="lazy"
-                width={100} height={100}
+                width={100}
+                height={100}
                 className="rounded-full border-4 object-cover shadow-xl"
               />
             </motion.div>
