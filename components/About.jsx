@@ -4,8 +4,10 @@ import React, { useEffect } from "react";
 import SectionHeading from "./SectionHeading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import { companyWorkedWith, stats } from "@/lib/data";
 import StatusCard from "./StatusCard";
+import { isDesktopOrLaptop } from "@/app/page";
+import { stats } from "@/lib/data";
+
 
 const About = () => {
   const { ref } = useSectionInView("About");
@@ -21,7 +23,7 @@ const About = () => {
         <SectionHeading title={"About Me 👨🏻‍💼 "} className="mb-7 lg:mb-10" />
 
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={{ opacity: isDesktopOrLaptop ? 0 : 1 }}
           whileInView={{ opacity: 1 }}
           transition={{
             delay: 0.2,

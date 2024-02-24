@@ -3,14 +3,9 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
   --line-color: rgba(255, 255, 255, 0.2);
   --color-darkBlue: #11131c;
   --color-zinc-950: #070709;
-}
-
-body {
-  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar,

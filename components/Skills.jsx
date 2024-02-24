@@ -4,22 +4,8 @@ import React, { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
 import { skillsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-import { motion } from "framer-motion";
 import SkillCircle from "./SkillCircle";
-
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.05 * index,
-    },
-  }),
-};
+import { isDesktopOrLaptop } from "@/app/page";
 
 const getRandomAngle = () => {
   return Math.floor(Math.random() * 360);
@@ -27,6 +13,20 @@ const getRandomAngle = () => {
 
 const Skills = () => {
   const { ref } = useSectionInView("Skills");
+
+  const fadeInAnimationVariants = isDesktopOrLaptop && {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.05 * index,
+      },
+    }),
+  };
 
   const [gradientAngles, setGradientAngles] = useState([]);
 

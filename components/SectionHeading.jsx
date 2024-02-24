@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { isDesktopOrLaptop } from "@/app/page";
+
 
 const SectionHeading = ({ title, ...property }) => {
   return (
@@ -8,7 +10,7 @@ const SectionHeading = ({ title, ...property }) => {
       <div className="w-fit relative">
         <motion.h2
           initial={{
-            opacity: 0,
+            opacity: isDesktopOrLaptop ? 0 : 1,
           }}
           whileInView={{
             opacity: 1,

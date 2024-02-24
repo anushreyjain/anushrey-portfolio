@@ -6,6 +6,7 @@ import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import ExperienceCard from "./ExperienceCard";
 import { motion, useScroll } from "framer-motion";
+import { isDesktopOrLaptop } from "@/app/page";
 
 const Experience = () => {
   const { ref } = useSectionInView("Experience", 0.3);
@@ -28,7 +29,10 @@ const Experience = () => {
 
       <motion.div
         ref={cardRef}
-        style={{ scale: scrollYProgress, opacity: scrollYProgress }}
+        style={{
+          scale: isDesktopOrLaptop && scrollYProgress,
+          opacity: isDesktopOrLaptop ? scrollYProgress : 1,
+        }}
         className="w-[90vw] md:w-[90vw] lg:w-[80vw] h-full px-5 py-8 lg:px-20 lg:py-20 bg-zinc-900 lg:bg-zinc-950 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] bg-opacity-80 lg:bg-opacity-75 flex flex-col gap-10 lg:gap-36 mt-10 lg:mt-20 rounded-[10vw] sm:rounded-[5vw]"
       >
         {experiencesData.map((item, index) => (
