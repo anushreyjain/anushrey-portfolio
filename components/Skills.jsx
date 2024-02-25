@@ -13,11 +13,10 @@ const getRandomAngle = () => {
 
 const Skills = () => {
   const isDesktopOrLaptop = useMediaQuery("(min-width: 960px)");
-  console.log(isDesktopOrLaptop);
 
   const { ref } = useSectionInView("Skills");
 
-  const fadeInAnimationVariants =  {
+  const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
       y: 100,

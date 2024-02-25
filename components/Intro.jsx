@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   BsArrowRight,
-  BsGithub,
-  BsInstagram,
-  BsLinkedin,
 } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { useSectionInView } from "@/lib/hooks";
