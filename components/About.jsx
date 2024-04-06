@@ -47,7 +47,7 @@ const About = () => {
           }}
         >
           <p className="mb-3 text-base md:text-xl md:leading-relaxed lg:text-2xl leading-relaxed lg:leading-loose">
-            {isDesktopOrLaptop ? "Desktop" : "Mobile"}I am a creative{" "}
+             I am a creative{" "}
             <span className="font-semibold"> Frontend Engineer </span> with an
             experience of <span className="font-semibold"> 3.5 Years</span>,
             having a solid foundation in{" "}
