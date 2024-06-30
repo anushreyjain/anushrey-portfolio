@@ -49,12 +49,12 @@ const About = () => {
           <p className="mb-3 text-base md:text-xl md:leading-relaxed lg:text-2xl leading-relaxed lg:leading-loose">
              I am a creative{" "}
             <span className="font-semibold"> Frontend Engineer </span> with an
-            experience of <span className="font-semibold"> 3.5 Years</span>,
+            experience of <span className="font-semibold"> 3 Years</span>,
             having a solid foundation in{" "}
             <span className="font-semibold">
               {" "}
-              HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS, SASS,
-              Bootstrap, Material UI, Atomic Design, Storybook, Webflow,
+              HTML5, CSS3, JavaScript, React.js 18, Next.js 13, Tailwind CSS, SASS,
+              Bootstrap 4/5, Material UI, Atomic Design, Storybook, Webflow,
             </span>{" "}
             and design software such as
             <span className="font-semibold">

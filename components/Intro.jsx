@@ -128,7 +128,7 @@ const Intro = () => {
           </Link>
 
           <a
-            href="/Anushrey_Jain_Resume.pdf"
+            href="/Anushrey_Jain_Resume_2024.pdf"
             download
             className="flex w-fit items-center gap-2  px-7 py-3 rounded-full outline-none hover:scale-[1.05] active:scale-105 transition group cursor-pointer border border-black/10 bg-white/10"
           >
