@@ -102,7 +102,7 @@ const Intro = () => {
           animate={{ y: 0, opacity: 1 }}
           className="md:text-3xl lg:text-5xl font-medium"
         >
-          A Creative Frontend Engineer
+          A Creative UI Designer and Engineer
         </motion.h1>
       </div>
 
