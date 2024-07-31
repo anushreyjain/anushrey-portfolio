@@ -11,8 +11,8 @@ const SectionHeading = ({ title, routeLink, lineColor, linkLabel, ...property })
 
   return (
     <div className={` ${property.className}`}>
-      <AnimatedLine className="hidden lg:block" margin={'m-0'} lineBgColor={lineColor} />
-      <hr className="mb-4 border-zinc-700 lg:hidden w-full"  />
+      {/* <AnimatedLine className="hidden lg:block" margin={'m-0'} lineBgColor={lineColor} /> */}
+      <hr className="mb-4 border-zinc-700  w-full"  />
       <div className="flex items-center justify-between">
         <div className="w-fit relative">
           <motion.h2
