@@ -96,7 +96,8 @@ const Intro = () => {
           className="md:text-3xl lg:text-5xl font-medium mt-3 mb-8 flex gap-2 lg:gap-5 
           items-center "
         >
-          <RubberBandText word={'Creative UI Engineer and Designer'} />
+          {/* <RubberBandText word={'Creative UI Engineer and Designer'} /> */}
+          Creative UI Engineer and Designer
           <span className='absolute left-0 -bottom-2 lg:-bottom-8 w-[5rem] 
           lg:w-[14.375rem] lg:h-[1.875rem] h-[0.563rem]'>
             <Image src={'/multi-curved-lines.svg'} alt='arrow' layout='fill' />
