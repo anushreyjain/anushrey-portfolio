@@ -14,8 +14,6 @@ const getRandomAngle = () => {
 const Skills = () => {
   const isDesktopOrLaptop = useMediaQuery("(min-width: 960px)");
 
-  const { ref } = useSectionInView("Skills");
-
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -39,19 +37,16 @@ const Skills = () => {
 
   return (
     <section
-      ref={ref}
-      id="skills"
-      className="w-full px-10 lg:px-20 text-center pt-20 lg:pt-32"
+      className="w-full  text-center"
     >
-      <SectionHeading title="Skills 🥷🏼" />
-      <div className="grid md:grid-cols-5 lg:grid-cols-7 grid-cols-3 self-center items-stretch gap-x-5 gap-y-5 lg:gap-x-10 lg:gap-y-10 w-full pt-16 lg:py-20">
+      <div className="grid md:grid-cols-5 lg:grid-cols-7 grid-cols-3 self-center 
+      items-stretch gap-x-5 gap-y-8 lg:gap-x-10 lg:gap-y-16 w-full pt-10 lg:pt-16 lg:py-10">
         {skillsData.map((item, index) => (
           <SkillCircle
             key={index}
             variants={fadeInAnimationVariants}
             initial={fadeInAnimationVariants.initial}
             whileInView={fadeInAnimationVariants.animate}
-            pa
             index={index}
             item={item}
             gradientAngles={gradientAngles}

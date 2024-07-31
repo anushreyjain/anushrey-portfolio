@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Oswald } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/ActiveSectionContextProvider";
 import { Toaster } from "react-hot-toast";
 import ThemeContextProvider from "@/context/ThemeContextProvider";
@@ -7,6 +7,7 @@ import Head from "next/head";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
+const oswald = Oswald({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Anushrey Jain | Portfolio",
@@ -41,15 +42,15 @@ export default function RootLayout({ children }) {
           <div className=" bg-opacity-20 -z-10 absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#E8CBC0]">
             <div className="bg-opacity-20 -z-10 absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left:[-5rem] bg-[#636FA4]"></div>
           </div>
-          <SmoothScroll>
-            <ThemeContextProvider>
-              <ActiveSectionContextProvider>
-                {children}
-                <Toaster position="top-right" />
-                {/* <ThemeSwitch /> */}
-              </ActiveSectionContextProvider>
-            </ThemeContextProvider>
-          </SmoothScroll>
+
+          <ThemeContextProvider>
+            <ActiveSectionContextProvider>
+              {children}
+              <Toaster position="top-right" />
+              {/* <ThemeSwitch /> */}
+            </ActiveSectionContextProvider>
+          </ThemeContextProvider>
+
         </body>
       </html>
     </>
