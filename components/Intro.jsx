@@ -10,16 +10,18 @@ import SocialLinksContainer from "./SocialLinksContainer";
 import ShinyButton from "./ShinyButton";
 import Button from "./Button";
 import RubberBandText from "./RubberBandText";
+import StarCanvas from "./StarBackground";
 
 const Intro = () => {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (<>
+    <StarCanvas />
     <section
       ref={ref}
       className="w-full h-screen text-center flex flex-col justify-center 
-      items-center lg:px-32 "
+      items-center lg:px-32 z-50 relative"
       id="home"
     >
       <div className="flex flex-col gap-1 items-center">
