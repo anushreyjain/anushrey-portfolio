@@ -12,7 +12,7 @@ const oswald = Oswald({ subsets: ["latin"] });
 export const metadata = {
   title: "Anushrey Jain | Portfolio",
   description:
-    "Anushrey Jain is a Frontend Engineer with 3 years of experience.",
+    "Anushrey Jain is a Software Engineer with 3.5 years of experience.",
   imageUrl: "/anushrey-meta.png",
 };
 
@@ -34,6 +34,26 @@ export default function RootLayout({ children }) {
         <meta property="twitter:title" content={metadata.title} />
         <meta property="twitter:description" content={metadata.description} />
         <meta property="twitter:image" content={metadata.imageUrl} />
+        <meta name="robots" content="index, follow" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Anushrey Jain",
+              url: "https://www.anushrey.com",
+              sameAs: [
+                "https://www.linkedin.com/in/anushrey-jain-95857a135/",
+                "https://github.com/anushreyjain",
+              ],
+              jobTitle: "Software Engineer",
+              description:
+                "Anushrey Jain is a Software Engineer with 3.5 years of experience.",
+            }),
+          }}
+        />
       </Head>
       <html lang="en">
         <body
@@ -50,7 +70,6 @@ export default function RootLayout({ children }) {
               {/* <ThemeSwitch /> */}
             </ActiveSectionContextProvider>
           </ThemeContextProvider>
-
         </body>
       </html>
     </>

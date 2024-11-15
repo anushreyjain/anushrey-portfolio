@@ -51,8 +51,8 @@ const About = () => {
         <p className="mb-3 text-base md:text-xl md:leading-relaxed lg:text-2xl 
           leading-relaxed lg:leading-loose text-neutral-200">
           I am a creative{" "}
-          <span className="font-semibold"> UI Engineer & UI/UX Designer </span> with an
-          experience of <span className="font-semibold"> 3 Years</span>,
+          <span className="font-semibold"> Tech Sculptor </span> with an
+          experience of <span className="font-semibold"> 3.5 Years</span>,
           I am knowledgeable
           in developing & designing user-friendly interfaces and have a keen eye for
           detail, ensuring that every pixel is in place to deliver a seamless
