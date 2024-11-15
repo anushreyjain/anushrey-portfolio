@@ -18,6 +18,8 @@ Welcome to [**anushrey.com**](https://anushrey.com), my personal corner of the i
 
 - **Next.js**: Powering the frontend with fast rendering and SEO optimization.
 - **Tailwind CSS**: Styled with utility-first design to keep things clean and modern.
+- **Framer Motion:** Used for micro-interactions and animations, adding a touch of smoothness and elegance.
+- **Three.js:** Bringing 3D animations to life, making the experience more immersive.
 - **Vercel**: Deployed for rapid load times and effortless scalability.
 
 ---
