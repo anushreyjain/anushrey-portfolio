@@ -134,7 +134,7 @@ const Intro = () => {
                 setTimeOfLastClick(Date.now());
               }}
             />
-            <a href="/Anushrey_Jain_Resume_2024.pdf" download>
+            <a href="/Anushrey_Jain_Resume_2025.pdf" download>
               <ShinyButton>
                 Download CV
                 <HiDownload className="opacity-70 lg:group-hover:translate-y-0.5 transition" />
