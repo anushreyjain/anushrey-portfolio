@@ -32,7 +32,7 @@ const Experience = () => {
 
         <div className="flex w-full justify-center">
           <div
-            className="w-[90vw] md:w-[90vw] lg:w-[80vw] h-full px-5 py-8 lg:px-20 
+            className="w-[96%] md:w-[96%] lg:w-[96%] h-full px-5 py-8 lg:px-20 
           lg:py-20 bg-zinc-900 lg:bg-zinc-950 shadow-lg shadow-black/[0.03] 
           backdrop-blur-[0.5rem] bg-opacity-80 lg:bg-opacity-75 flex flex-col gap-14 
           lg:gap-36 rounded-[10vw] sm:rounded-[5vw]"
