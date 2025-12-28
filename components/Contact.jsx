@@ -105,7 +105,7 @@ const Contact = () => {
             <div className="">
               <h3 className="text-xl lg:text-4xl">
                 Do you have any
-                <span className="font-semibold text-xl lg:text-4xl !leading-snug">
+                <span className="font-semibold text-xl lg:text-4xl !leading-snug pl-2">
                   Questions,
                 </span>{" "}
                 <br />{" "}
