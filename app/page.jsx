@@ -20,7 +20,7 @@ export default function Home() {
           setIsFullNavbar={setIsFullNavbar}
         />
       )}
-      <div className={`${isFullNavbar && "opacity-0"}`}>
+      <div className={`w-full ${isFullNavbar && "opacity-0"}`}>
         {/* <Header setIsFullNavbar={setIsFullNavbar} /> */}
         <Intro />
         <About />
