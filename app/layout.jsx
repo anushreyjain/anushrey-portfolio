@@ -12,7 +12,7 @@ const oswald = Oswald({ subsets: ["latin"] });
 export const metadata = {
   title: "Anushrey Jain | Portfolio",
   description:
-    "Anushrey Jain is a Software Engineer with 3.5 years of experience.",
+    "Anushrey Jain is a Software Engineer with 5+ years of experience.",
   imageUrl: "/anushrey-meta.png",
 };
 
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
               ],
               jobTitle: "Software Engineer",
               description:
-                "Anushrey Jain is a Software Engineer with 3.5 years of experience.",
+                "Anushrey Jain is a Software Engineer with 5+ years of experience.",
             }),
           }}
         />
