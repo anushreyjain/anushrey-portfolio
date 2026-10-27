@@ -7,6 +7,7 @@ import Experience from "@/components/Experience";
 import FullScreenNavbar from "@/components/FullScreenNavbar";
 import Intro from "@/components/Intro";
 import Showcase from "@/components/Showcase";
+import Websites from "@/components/Websites";
 import {useState } from "react";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         {/* <Header setIsFullNavbar={setIsFullNavbar} /> */}
         <Intro />
         <About />
+        <Websites />
         <Showcase />
         <DesignShowcase />
         <Experience />
