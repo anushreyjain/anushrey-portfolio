@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { BsArrowUp } from "react-icons/bs";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import Corners from "./Corners";
+import { WORDMARK_LETTERS, WORDMARK_VIEWBOX } from "@/lib/wordmarkPaths";
 import RollText from "./RollText";
 
 const navigate = [
@@ -43,6 +44,9 @@ const LinkColumn = ({ title, links }) => (
 
 const Footer = () => {
   const reduceMotion = useReducedMotion();
+  // The running border only animates while the footer is on screen
+  const wordmarkRef = useRef(null);
+  const wordmarkVisible = useInView(wordmarkRef);
   return (
   <footer className="relative w-full overflow-hidden px-5 lg:px-[7.5rem] pt-10">
     <div className="container-x framed">
@@ -75,22 +79,43 @@ const Footer = () => {
       </div>
     </div>
 
-    <div
-      aria-hidden="true"
-      className="container-x select-none whitespace-nowrap text-center font-serif italic leading-[1] tracking-[-0.04em] text-outline text-[22vw] lg:text-[19vw] min-[1800px]:text-[21rem] pt-8 pb-0"
-    >
-      {"Anushrey".split("").map((letter, i) => (
-        <motion.span
-          key={i}
-          className="wordmark-letter inline-block"
-          initial={reduceMotion ? false : { opacity: 0, y: "45%" }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: i * 0.04 }}
-        >
-          {letter}
-        </motion.span>
-      ))}
+    <div aria-hidden="true" className="container-x select-none pt-8">
+      <svg
+        ref={wordmarkRef}
+        viewBox={WORDMARK_VIEWBOX}
+        data-active={wordmarkVisible}
+        className="wordmark mx-auto block h-auto w-[84vw] lg:w-[70vw] min-[1800px]:w-[78rem] overflow-visible"
+      >
+        {WORDMARK_LETTERS.map((letter, i) => (
+          <motion.g
+            key={letter.char + i}
+            className="wordmark-letter"
+            initial={reduceMotion ? false : { opacity: 0, y: 500 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: i * 0.04 }}
+          >
+            <path d={letter.d} className="wordmark-base" />
+            {/* Border that roams along the letter's outline, start to end */}
+            {!reduceMotion && (
+              <>
+                <path
+                  d={letter.d}
+                  pathLength="100"
+                  className="wordmark-run wordmark-glow"
+                  style={{ animationDelay: `${1.6 + i * 0.5}s` }}
+                />
+                <path
+                  d={letter.d}
+                  pathLength="100"
+                  className="wordmark-run"
+                  style={{ animationDelay: `${1.6 + i * 0.5}s` }}
+                />
+              </>
+            )}
+          </motion.g>
+        ))}
+      </svg>
     </div>
   </footer>
   );

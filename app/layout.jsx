@@ -87,8 +87,18 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`dark ${inter.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
+      <head>
+        {/* Flag low-power devices so decorative effects (grain, running border) can be skipped */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var n=navigator,c=n.connection;if((n.hardwareConcurrency&&n.hardwareConcurrency<=4)||(n.deviceMemory&&n.deviceMemory<=4)||(c&&c.saveData))document.documentElement.classList.add('lite')}catch(e){}",
+          }}
+        />
+      </head>
       <body className="relative font-sans text-ink">
         <script
           type="application/ld+json"

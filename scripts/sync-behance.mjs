@@ -2,6 +2,7 @@
 // Usage: npm run sync:behance
 import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import sharp from "sharp";
 
 const USER = "anushreyjain";
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36";
@@ -29,10 +30,14 @@ for (const block of xml.split("<item>").slice(1)) {
 
   const hiRes = cover.replace("/projects/404/", "/projects/808/");
   const img = await fetch(hiRes, { headers: { "user-agent": UA } });
-  const ext = path.extname(new URL(hiRes).pathname) || ".png";
-  const file = `${id}${ext}`;
+  // Store covers as small WebP files (shown at ~320px), not the full-size originals.
+  const file = `${id}.webp`;
   if (img.ok) {
-    await writeFile(path.join(outDir, file), Buffer.from(await img.arrayBuffer()));
+    const webp = await sharp(Buffer.from(await img.arrayBuffer()))
+      .resize({ width: 640, withoutEnlargement: true })
+      .webp({ quality: 78 })
+      .toBuffer();
+    await writeFile(path.join(outDir, file), webp);
   }
 
   items.push({

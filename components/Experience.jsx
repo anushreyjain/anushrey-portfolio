@@ -19,7 +19,8 @@ const Experience = () => {
       ref={ref}
       id={'experience'}
     >
-      <div className="mb-10 lg:mb-16 pt-6">
+      {/* The date-scaled timeline needs width; on phones/tablets the cards below carry the same info. */}
+      <div className="mb-16 hidden pt-6 lg:block">
         <Timeline />
       </div>
       <div>
