@@ -12,8 +12,7 @@ const About = () => {
   return (
     <SectionWarpper
       routeLink={'https://www.linkedin.com/in/anushrey-jain-95857a135/'}
-      title={"About Me"}
-      index="01"
+      title={"Where Design Meets Engineering"}
       label="About"
       ref={ref}
       id={'about'}
@@ -25,13 +24,18 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true, margin: "-80px" }}
-          className="lg:col-span-9 font-serif text-2xl md:text-3xl lg:text-[2.75rem] leading-[1.3] lg:leading-[1.25] tracking-[-0.01em] text-ink-muted"
+          className="lg:col-span-9 font-serif text-2xl md:text-3xl lg:text-[clamp(2rem,2.4vw,2.75rem)] leading-[1.3] lg:leading-[1.25] tracking-[-0.01em] text-ink-muted"
         >
           I&apos;m a{" "}
           <em className="italic text-ink-bright">Lead Frontend Engineer</em> with{" "}
           <em className="italic text-ink-bright">5+ years</em> of experience
           building fast, accessible products in React and Next.js, and I bring a
-          designer&apos;s eye to every pixel.
+          designer&apos;s eye to every pixel. I&apos;ve shipped for clients like{" "}
+          <em className="italic text-ink-bright">Deloitte, BCG and Apollo Tyres</em>,
+          and today I lead a distributed team building{" "}
+          <em className="italic text-ink-bright">agentic AI workflows</em> and{" "}
+          <em className="italic text-ink-bright">design systems</em> that keep
+          products fast, consistent and easy to scale.
         </motion.p>
       </div>
 

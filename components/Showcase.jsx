@@ -10,8 +10,7 @@ const Showcase = () => {
   return (
     <SectionWarpper
       routeLink={'https://www.linkedin.com/in/anushrey-jain-95857a135/details/projects/'}
-      title={"Accolades"}
-      index="03"
+      title={"Products I've Shaped"}
       label="Selected products"
       ref={ref}
       id={'projects'}

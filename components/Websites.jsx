@@ -12,8 +12,7 @@ const Websites = () => {
 
   return (
     <SectionWarpper
-      title="Websites I've Built"
-      index="02"
+      title="Crafted for the Web"
       label="Websites"
       linkLabel="Let's build yours"
       routeLink="#contact"

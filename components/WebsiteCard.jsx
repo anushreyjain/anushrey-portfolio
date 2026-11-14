@@ -22,8 +22,7 @@ const WebsiteCard = ({ site, index }) => {
       transition={{ duration: 0.7, delay: index * 0.1 }}
       className="cell-hover group flex lg:min-h-[26rem] flex-col p-7 lg:p-10"
     >
-      <div className="flex items-start justify-between">
-        <span className="eyebrow">{String(index + 1).padStart(2, "0")}</span>
+      <div className="flex items-start justify-end">
         <span className="arrow-circle">
           <BsArrowUpRight size={14} />
         </span>

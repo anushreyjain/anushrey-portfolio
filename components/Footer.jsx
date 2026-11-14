@@ -2,6 +2,7 @@
 
 import React from "react";
 import { BsArrowUp } from "react-icons/bs";
+import { motion, useReducedMotion } from "framer-motion";
 import Corners from "./Corners";
 import RollText from "./RollText";
 
@@ -40,7 +41,9 @@ const LinkColumn = ({ title, links }) => (
   </div>
 );
 
-const Footer = () => (
+const Footer = () => {
+  const reduceMotion = useReducedMotion();
+  return (
   <footer className="relative w-full overflow-hidden px-5 lg:px-[7.5rem] pt-10">
     <div className="container-x framed">
       <Corners />
@@ -74,11 +77,23 @@ const Footer = () => (
 
     <div
       aria-hidden="true"
-      className="container-x select-none whitespace-nowrap text-center font-serif italic leading-[0.9] tracking-[-0.04em] text-outline text-[22vw] lg:text-[19vw] min-[1800px]:text-[21rem] -mb-[0.12em] pt-8"
+      className="container-x select-none whitespace-nowrap text-center font-serif italic leading-[1] tracking-[-0.04em] text-outline text-[22vw] lg:text-[19vw] min-[1800px]:text-[21rem] pt-8 pb-0"
     >
-      Anushrey
+      {"Anushrey".split("").map((letter, i) => (
+        <motion.span
+          key={i}
+          className="wordmark-letter inline-block"
+          initial={reduceMotion ? false : { opacity: 0, y: "45%" }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: i * 0.04 }}
+        >
+          {letter}
+        </motion.span>
+      ))}
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

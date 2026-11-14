@@ -4,7 +4,6 @@ import SectionHeading from './SectionHeading'
 const SectionWarpper = React.forwardRef(function SectionWarpper({
     routeLink,
     title,
-    index,
     label,
     children,
     id,
@@ -23,7 +22,6 @@ const SectionWarpper = React.forwardRef(function SectionWarpper({
                 <SectionHeading
                     routeLink={routeLink}
                     title={title}
-                    index={index}
                     label={label}
                     linkLabel={linkLabel}
                     className="container-x mb-12 lg:mb-20" />

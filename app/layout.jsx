@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
         />
         <div
           className="noise-background"
-          style={{ "--noise-opacity": 0.05 }}
+          style={{ "--noise-opacity": 0.10 }}
           aria-hidden="true"
         />
 

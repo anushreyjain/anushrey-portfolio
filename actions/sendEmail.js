@@ -4,7 +4,11 @@ import { headers } from 'next/headers';
 import { getErrorMessage, validateString } from '@/lib/utils';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Created lazily so a missing key doesn't crash the module on import.
+const getResend = () => {
+    const key = process.env.RESEND_API_KEY
+    return key ? new Resend(key) : null
+}
 
 const EMAIL_RE = /^[^\s@<>()",;:\\]+@[^\s@<>()",;:\\]+\.[^\s@<>()",;:\\]{2,}$/
 
@@ -45,6 +49,12 @@ export const sendEmail = async (formData) => {
 
     if (!validateString(message, 5000) || message.trim().length < 5) {
         return { error: 'Invalid message' }
+    }
+
+    const resend = getResend()
+    if (!resend) {
+        console.error('sendEmail failed: RESEND_API_KEY is not set')
+        return { error: 'Email service is not configured. Please try again later.' }
     }
 
     let data;

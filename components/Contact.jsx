@@ -25,8 +25,7 @@ const Contact = () => {
   return (
     <SectionWarpper
       routeLink={`mailto:${EMAIL}`}
-      title={"Have a project in mind?"}
-      index="06"
+      title={"Let's Build Something Remarkable"}
       label="Contact"
       ref={ref}
       linkLabel={'Connect now'}

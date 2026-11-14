@@ -3,27 +3,24 @@ import { motion } from "framer-motion";
 import { BsArrowUpRight } from "react-icons/bs";
 import Sparkle from "./Sparkle";
 import RollText from "./RollText";
+import { slugify } from "./Timeline";
 
-const ExperienceCard = ({ item, index }) => {
+const ExperienceCard = ({ item }) => {
   const isCurrent = /present/i.test(item.duration);
-  const columns =
-    item.list.length === 2 ? "lg:grid-cols-2 lg:max-w-4xl" : "lg:grid-cols-3";
 
   return (
     <motion.article
+      id={`exp-${slugify(item.company)}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="border-t border-line first:border-0 py-12 lg:py-20"
+      className="scroll-mt-24 border-t border-line first:border-0 py-12 lg:py-20"
     >
       {/* Header wraps naturally: dates drop under the name when space is tight */}
       <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
         <div className="min-w-0 max-w-full">
-          <span className="eyebrow !text-ink-faint">
-            ({String(index + 1).padStart(2, "0")})
-          </span>
-          <h3 className="mt-4 text-[2.2rem] sm:text-5xl lg:text-6xl leading-[1.08] text-ink-bright">
+          <h3 className="text-[2.2rem] sm:text-5xl lg:text-[clamp(2.75rem,3.6vw,3.75rem)] leading-[1.08] text-ink-bright">
             <a
               href={item.href}
               target="_blank"
@@ -52,13 +49,10 @@ const ExperienceCard = ({ item, index }) => {
         </div>
       </div>
 
-      {/* Highlights sit side by side on wide screens, stack on small ones */}
-      <ul className={`mt-10 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 ${columns}`}>
+      <ul className="mt-8 lg:mt-12 flex max-w-4xl flex-col gap-5">
         {item.list.map((point, i) => (
-          <li key={i} className="flex flex-col gap-3">
-            <span className="eyebrow !text-accent">
-              {String(i + 1).padStart(2, "0")}
-            </span>
+          <li key={i} className="flex gap-4">
+            <span aria-hidden="true" className="mt-[0.7em] h-[5px] w-[5px] flex-shrink-0 rounded-full bg-accent" />
             <p className="text-base lg:text-[1.05rem] text-ink-muted leading-relaxed">
               {point.replace(/\s+/g, " ")}
             </p>
