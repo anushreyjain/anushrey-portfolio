@@ -29,7 +29,7 @@ const Header = ({ setIsFullNavbar }) => {
         <div onClick={openNavbar} className="hamburger lg:hidden text-xl">
           <RxHamburgerMenu />
         </div>
-        <ul className="lg:flex hidden flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 lg:w-[initial] lg:flex-nowrap lg:gap-5">
+        <ul className="lg:flex hidden flex-wrap items-center justify-center gap-y-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-muted lg:w-[initial] lg:flex-nowrap lg:gap-5">
           {links.map((link) => (
             <li
               className="h-3/4 flex items-center justify-center relative"
@@ -37,9 +37,9 @@ const Header = ({ setIsFullNavbar }) => {
             >
               <Link
                 className={clsx(
-                  "flex items-center w-full px-3 py-3 transition justify-center text-gray-500  hover:text-gray-300",
+                  "flex items-center w-full px-3 py-3 transition justify-center text-ink-muted hover:text-ink-bright",
                   {
-                    "!text-gray-200": activeSection === link.name,
+                    "!text-ink-bright": activeSection === link.name,
                   }
                 )}
                 href={link.hash}
@@ -57,7 +57,7 @@ const Header = ({ setIsFullNavbar }) => {
                       stiffness: 380,
                       damping: 30,
                     }}
-                    className="absolute bottom-2 -z-10 border-b w-3/12 text-center border-neutral-200"
+                    className="absolute bottom-2 -z-10 border-b w-3/12 text-center border-line-strong"
                   ></motion.span>
                 )}
               </Link>

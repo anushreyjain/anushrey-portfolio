@@ -3,79 +3,49 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import StatusCard from "./StatusCard";
-import { stats } from "@/lib/data";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import Skills from "./Skills";
 import SectionWarpper from "./SectionWarpper";
 
 const About = () => {
   const { ref } = useSectionInView("About");
 
-  const isDesktopOrLaptop = useMediaQuery("(min-width: 960px)");
-
-  const variants = isDesktopOrLaptop
-    ? {
-      initial: { opacity: 0 },
-      whileInView: { opacity: 1 },
-      transition: {
-        ease: "linear",
-      },
-    }
-    : {
-      initial: { opacity: 1 },
-      whileInView: { opacity: 1 },
-      transition: {},
-    };
-
-
   return (
     <SectionWarpper
       routeLink={'https://www.linkedin.com/in/anushrey-jain-95857a135/'}
       title={"About Me"}
-      lineColor={'#09090B'}
-      wrapperClasses={'text-center'}
+      index="01"
+      label="About"
       ref={ref}
       id={'about'}
     >
-      <motion.div
-        variants={variants}
-        initial={variants.initial}
-        whileInView={variants.whileInView}
-        className=""
-        transition={variants.transition}
-        viewport={{
-          once: true,
-        }}
-      >
-        <p className="mb-3 text-base md:text-xl md:leading-relaxed lg:text-2xl 
-          leading-relaxed lg:leading-loose text-neutral-200 max-w-4xl mx-auto">
-          I am a creative{" "}
-          <span className="font-semibold inline-block"> Tech Sculptor </span> with an
-          experience of <span className="font-semibold"> 5+ Years</span>,{" "}
-          I am knowledgeable
-          in developing & designing user-friendly interfaces and have a keen eye for
-          detail, ensuring that every pixel is in place to deliver a seamless
-          user experience.
-        </p>
-        <div className="max-w-[101.25rem] mx-auto">
-          <p className="mt-12 text-base md:text-xl text-neutral-200 
-        font-semibold md:leading-relaxed lg:text-2xl leading-relaxed lg:leading-loose">
-            My expertise includes -
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+        <p className="eyebrow lg:col-span-3 pt-3">Who I am</p>
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="lg:col-span-9 font-serif text-2xl md:text-3xl lg:text-[2.75rem] leading-[1.3] lg:leading-[1.25] tracking-[-0.01em] text-ink-muted"
+        >
+          I&apos;m a{" "}
+          <em className="italic text-ink-bright">Lead Frontend Engineer</em> with{" "}
+          <em className="italic text-ink-bright">5+ years</em> of experience
+          building fast, accessible products in React and Next.js, and I bring a
+          designer&apos;s eye to every pixel.
+        </motion.p>
+      </div>
+
+      <div className="mt-20 lg:mt-32 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="lg:col-span-3 flex flex-col gap-3">
+          <p className="eyebrow">My expertise</p>
+          <p className="text-sm text-ink-faint max-w-[16rem] leading-relaxed">
+            The tools I reach for to take an idea from Figma to production.
           </p>
+        </div>
+        <div className="lg:col-span-9">
           <Skills />
         </div>
-        <div className="w-full flex items-center mt-20 justify-between md:justify-center ">
-          {stats.map((item, index) => (
-            <StatusCard
-              key={index}
-              index={index}
-              title={item.title}
-              subTitle={item.subTitle}
-            />
-          ))}
-        </div>
-      </motion.div>
+      </div>
     </SectionWarpper>
   );
 };

@@ -1,38 +1,38 @@
 import React from 'react'
 import SectionHeading from './SectionHeading'
 
-const SectionWarpper = ({
+const SectionWarpper = React.forwardRef(function SectionWarpper({
     routeLink,
     title,
-    lineColor,
+    index,
+    label,
     children,
-    ref,
     id,
-    childrenClasses,
-    wrapperClasses,
+    childrenClasses = '',
+    wrapperClasses = '',
     linkLabel,
     ...property
-}) => {
+}, ref) {
     return (
         <section
-            className={`${wrapperClasses} relative overflow-hidden leading-8 
-            lg:px-20 lg:min-h-screen lg:pt-20 pt-10 w-full ${property.className}`}
+            className={`${wrapperClasses} relative w-full scroll-mt-10 lg:px-20 py-20 lg:py-32 ${property.className ?? ''}`}
             ref={ref}
             id={id}
         >
-            <div className={`h-full ${childrenClasses} px-5 lg:px-10 flex flex-col justify-center`}>
+            <div className={`${childrenClasses} px-5 lg:px-10`}>
                 <SectionHeading
                     routeLink={routeLink}
                     title={title}
+                    index={index}
+                    label={label}
                     linkLabel={linkLabel}
-                    lineColor={lineColor}
-                    className="mb-7 lg:mb-10 max-w-[101.25rem] mx-auto w-full" />
-                <div className='pt-6 pb-20 lg:pt-12 lg:pb-24'>
+                    className="container-x mb-12 lg:mb-20" />
+                <div className="container-x">
                     {children}
                 </div>
             </div>
         </section>
     )
-}
+})
 
 export default SectionWarpper

@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
-import { HiDownload } from 'react-icons/hi';
-import { BsArrowRight } from 'react-icons/bs'; // Add this import
+import { BsArrowRight } from "react-icons/bs";
 
+// Text link with the sliding glow shine and a hover arrow nudge.
 const ShinyLink = ({ children, routeLink }) => {
   return (
-    <motion.a // Change this to motion.a
-      href={routeLink} // Move href here
+    <motion.a
+      href={routeLink}
       target="_blank"
-      rel="noopener noreferrer" // Add this for security
+      rel="noopener noreferrer"
       initial={{ "--x": "100%", scale: 1 }}
       animate={{ "--x": "-100%" }}
       whileTap={{ scale: 0.97 }}
       transition={{
         repeat: Infinity,
         repeatType: "loop",
-        repeatDelay: 0.1, // Reduced from 0.5 to 0.2
+        repeatDelay: 0.1,
         duration: 0.5,
         type: "spring",
         stiffness: 20,
@@ -28,20 +28,21 @@ const ShinyLink = ({ children, routeLink }) => {
           mass: 0.1,
         },
       }}
-      className="relative radial-gradient-link group w-fit hover:scale-105 
-      flex items-center gap-3 tracking-wide h-full"
+      className="relative group w-fit hover:scale-105 flex items-center gap-3 tracking-wide h-full"
     >
-      <span className="text-sm lg:text-base text-gray-300 group-hover:scale-105 
-      active:scale-105 transition 
-      flex items-center gap-1 underline cursor-pointer linear-mask-link">
+      <span
+        className="text-sm lg:text-base text-ink group-hover:scale-105 active:scale-105 transition
+      flex items-center gap-1 underline underline-offset-4 decoration-white/30 cursor-pointer linear-mask-link"
+      >
         {children}
-        <BsArrowRight color="#fff" className="opacity-70 -rotate-45 lg:group-hover:-translate-y-[2px]
-          lg:group-hover:translate-x-[2px] transition-all" />
+        <BsArrowRight
+          color="#fff"
+          className="opacity-70 -rotate-45 lg:group-hover:-translate-y-[2px]
+          lg:group-hover:translate-x-[2px] transition-all"
+        />
       </span>
-      <span className="block absolute inset-0 group-hover:scale-105  
-      linear-overlay-link" />
     </motion.a>
-  )
-}
+  );
+};
 
-export default ShinyLink
+export default ShinyLink;

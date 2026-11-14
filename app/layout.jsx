@@ -1,77 +1,113 @@
 import "./globals.css";
-import { Montserrat, Oswald } from "next/font/google";
+import { Inter, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/ActiveSectionContextProvider";
 import { Toaster } from "react-hot-toast";
 import ThemeContextProvider from "@/context/ThemeContextProvider";
-import Head from "next/head";
-import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+import { SITE_URL, SITE_NAME, TITLE, DESCRIPTION, jsonLd } from "@/lib/seo";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
-const oswald = Oswald({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata = {
-  title: "Anushrey Jain | Portfolio",
-  description:
-    "Anushrey Jain is a Software Engineer with 5+ years of experience.",
-  imageUrl: "/anushrey-meta.png",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  keywords: [
+    "Anushrey Jain",
+    "Lead Frontend Engineer",
+    "Frontend Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "Design Systems",
+    "Agentic AI",
+    "UI Engineer",
+    "Portfolio",
+  ],
+  category: "technology",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { email: false, address: false, telephone: false },
+};
+
+export const viewport = {
+  themeColor: "#0b0b0c",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.anushrey.com" />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.imageUrl} />
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.anushrey.com" />
-        <meta property="twitter:title" content={metadata.title} />
-        <meta property="twitter:description" content={metadata.description} />
-        <meta property="twitter:image" content={metadata.imageUrl} />
-        <meta name="robots" content="index, follow" />
-
+    <html
+      lang="en"
+      className={`dark ${inter.variable} ${newsreader.variable} ${plexMono.variable}`}
+    >
+      <body className="relative font-sans text-ink">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Anushrey Jain",
-              url: "https://www.anushrey.com",
-              sameAs: [
-                "https://www.linkedin.com/in/anushrey-jain-95857a135/",
-                "https://github.com/anushreyjain",
-              ],
-              jobTitle: "Software Engineer",
-              description:
-                "Anushrey Jain is a Software Engineer with 5+ years of experience.",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </Head>
-      <html lang="en">
-        <body
-          className={`${montserrat.className} relative bg-zinc-950 text-gray-50 text-opacity-90`}
-        >
-          <div className=" bg-opacity-20 -z-10 absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-[#E8CBC0]">
-            <div className="bg-opacity-20 -z-10 absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left:[-5rem] bg-[#636FA4]"></div>
-          </div>
+        <div
+          className="noise-background"
+          style={{ "--noise-opacity": 0.05 }}
+          aria-hidden="true"
+        />
 
-          <ThemeContextProvider>
-            <ActiveSectionContextProvider>
-              {children}
-              <Toaster position="top-right" />
-              {/* <ThemeSwitch /> */}
-            </ActiveSectionContextProvider>
-          </ThemeContextProvider>
-        </body>
-      </html>
-    </>
+        <ThemeContextProvider>
+          <ActiveSectionContextProvider>
+            {children}
+            <Toaster position="top-right" />
+            <CustomCursor />
+          </ActiveSectionContextProvider>
+        </ThemeContextProvider>
+      </body>
+    </html>
   );
 }

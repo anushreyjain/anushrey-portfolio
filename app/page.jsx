@@ -6,6 +6,7 @@ import DesignShowcase from "@/components/DesignShowcase";
 import Experience from "@/components/Experience";
 import FullScreenNavbar from "@/components/FullScreenNavbar";
 import Intro from "@/components/Intro";
+import Footer from "@/components/Footer";
 import Showcase from "@/components/Showcase";
 import Websites from "@/components/Websites";
 import {useState } from "react";
@@ -30,6 +31,7 @@ export default function Home() {
         <DesignShowcase />
         <Experience />
         <Contact />
+        <Footer />
       </div>
     </main>
   );

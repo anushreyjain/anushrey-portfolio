@@ -2,46 +2,28 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
-const SkillCircle = ({
-  item,
-  gradientAngles,
-  index,
-  variants,
-  initial,
-  whileInView,
-  ...property
-}) => {
-  return (
-    <motion.div
-      variants={variants}
-      initial={initial}
-      whileInView={whileInView}
-      viewport={{ once: true }}
-      className={`flex flex-col gap-2 lg:gap-5 items-center ${property.className}`}
-    >
-      <div
-        className="w-[3.8rem] h-[3.8rem] lg:w-[4.7rem] lg:h-[4.7rem] rounded-full border-[2px]
-         border-zinc-900 relative flex justify-center items-center"
-        style={{
-          backgroundImage: `linear-gradient(${gradientAngles[index]}deg, var(--color-darkBlue), var(--color-zinc-950))`,
-        }}
-      >
-        <div className="relative w-[1.3rem] h-[1.3rem] lg:w-[1.7rem] lg:h-[1.7rem] 
-        flex justify-center items-center">
-          <Image
-            src={`/logo/${item.logo}.svg`}
-            alt="logo"
-            loading="lazy"
-            width={100}
-            height={100}
-          />
-        </div>
-      </div>
-      <h3 className="text-sm lg:text-lg font-medium text-zinc-400">
-        {item.name}
-      </h3>
-    </motion.div>
-  );
-};
+const SkillCircle = ({ item, index }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true, margin: "-40px" }}
+    transition={{ duration: 0.6, delay: (index % 6) * 0.05 }}
+    className="cell-hover group flex flex-col items-center justify-center gap-4 px-3 py-8 lg:py-10"
+  >
+    <div className="flex h-14 w-14 lg:h-16 lg:w-16 items-center justify-center rounded-full border border-line bg-surface-2 transition-all duration-700 ease-out-expo group-hover:border-line-strong group-hover:-translate-y-1.5 group-hover:scale-110">
+      <Image
+        src={`/logo/${item.logo}.svg`}
+        alt=""
+        loading="lazy"
+        width={26}
+        height={26}
+        className="h-6 w-6 lg:h-7 lg:w-7 object-contain grayscale-[60%] opacity-80 transition duration-500 group-hover:grayscale-0 group-hover:opacity-100"
+      />
+    </div>
+    <span className="text-sm text-ink-muted transition-colors duration-300 group-hover:text-ink-bright">
+      {item.name}
+    </span>
+  </motion.div>
+);
 
 export default SkillCircle;

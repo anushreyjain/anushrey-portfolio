@@ -5,6 +5,7 @@ import { websites } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import SectionWarpper from "./SectionWarpper";
 import WebsiteCard from "./WebsiteCard";
+import Corners from "./Corners";
 
 const Websites = () => {
   const { ref } = useSectionInView("Websites", 0.3);
@@ -12,17 +13,20 @@ const Websites = () => {
   return (
     <SectionWarpper
       title="Websites I've Built"
+      index="02"
+      label="Websites"
       linkLabel="Let's build yours"
       routeLink="#contact"
-      lineColor="#0A0A0D"
       ref={ref}
       id="websites"
-      className="lg:!min-h-0"
     >
-      <div className="max-w-[101.25rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {websites.map((site) => (
-          <WebsiteCard key={site.url} site={site} />
-        ))}
+      <div className="relative">
+        <Corners />
+        <div className="cell-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {websites.map((site, index) => (
+            <WebsiteCard key={site.url} site={site} index={index} />
+          ))}
+        </div>
       </div>
     </SectionWarpper>
   );

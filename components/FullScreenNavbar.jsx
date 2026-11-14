@@ -44,18 +44,18 @@ export default function FullScreenNavbar({
           animate={{ height: "100vh", opacity: 1 }}
           transition={{ ease: "linear", duration: 0.2 }}
           ref={dialogRef}
-          className={`w-full h-screen flex flex-col bg-zinc-900 items-center z-10 relative p-5`}
+          className={`w-full h-screen flex flex-col bg-bg items-center z-10 relative p-5`}
         >
           <div className="w-full flex justify-end items-center pt-20">
             <span
               onClick={closeModal}
-              className="bg-zinc-950 w-10 h-10 text-zinc-300  rounded-full flex justify-center items-center text-2xl"
+              className="bg-surface border border-line w-10 h-10 text-ink  rounded-ds flex justify-center items-center text-2xl"
             >
               <IoClose />
             </span>
           </div>
           <div className="h-full w-full pt-10">
-            <ul className="flex flex-col items-center justify-center gap-y-7 text-xl  text-gray-500">
+            <ul className="flex flex-col items-center justify-center gap-y-7 font-serif text-3xl text-ink-muted">
               {links.map((link) => (
                 <li
                   className="flex items-center justify-center relative"
@@ -65,7 +65,7 @@ export default function FullScreenNavbar({
                     className={clsx(
                       "flex items-center w-full transition justify-center ",
                       {
-                        "!text-gray-200 font-semibold":
+                        "!text-ink-bright italic":
                           activeSection === link.name,
                       }
                     )}

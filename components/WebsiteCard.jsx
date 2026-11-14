@@ -4,9 +4,10 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BsArrowUpRight } from "react-icons/bs";
+import RollText from "./RollText";
 
-const WebsiteCard = ({ site }) => {
-  const host = site.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const WebsiteCard = ({ site, index }) => {
+  const host = site.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
   return (
     <motion.a
@@ -14,42 +15,47 @@ const WebsiteCard = ({ site }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Visit ${site.title}`}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="group flex flex-col gap-5 rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 hover:border-zinc-600 transition"
+      data-cursor="Visit"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay: index * 0.1 }}
+      className="cell-hover group flex lg:min-h-[26rem] flex-col p-7 lg:p-10"
     >
       <div className="flex items-start justify-between">
-        <div className="relative h-16 w-16 overflow-hidden rounded-2xl bg-zinc-800">
-          {site.logo && (
-            <Image
-              src={site.logo}
-              alt={`${site.title} logo`}
-              fill
-              sizes="64px"
-              className="object-cover"
-            />
-          )}
-        </div>
-        <BsArrowUpRight
-          size={20}
-          className="text-zinc-500 group-hover:text-zinc-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition"
-        />
+        <span className="eyebrow">{String(index + 1).padStart(2, "0")}</span>
+        <span className="arrow-circle">
+          <BsArrowUpRight size={14} />
+        </span>
       </div>
 
-      <div className="flex flex-col gap-1">
-        <h3 className="text-xl lg:text-2xl font-semibold text-zinc-100">{site.title}</h3>
-        <p className="text-xs text-zinc-500">{host}</p>
-        <p className="text-sm text-zinc-400 mt-2">{site.summary}</p>
+      <div className="mt-10 relative h-16 w-16 overflow-hidden rounded-full border border-line bg-surface-2 transition-transform duration-700 ease-out-expo group-hover:scale-110 group-hover:-rotate-6">
+        {site.logo && (
+          <Image
+            src={site.logo}
+            alt={`${site.title} logo`}
+            fill
+            sizes="64px"
+            className="object-cover"
+          />
+        )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 mt-auto">
-        <span className="rounded-full border border-zinc-700 px-3 py-1 text-xs text-zinc-300">
+      <div className="mt-8 flex flex-col gap-2">
+        <h3 className="text-2xl lg:text-[2rem] text-ink-bright"><RollText>{site.title}</RollText></h3>
+        <p className="font-mono text-xs tracking-wide text-ink-faint">{host}</p>
+        <p className="mt-3 text-sm lg:text-base text-ink-muted leading-relaxed max-w-sm">
+          {site.summary}
+        </p>
+      </div>
+
+      <div className="mt-auto pt-10 flex flex-wrap items-center gap-2">
+        <span className="pill !text-ink">
+          <span className="dot !h-[5px] !w-[5px]" />
           {site.cms}
         </span>
         {site.tags?.map((tag) => (
-          <span key={tag} className="rounded-full bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+          <span key={tag} className="pill group-hover:border-[color:rgba(255,255,255,0.24)]">
             {tag}
           </span>
         ))}

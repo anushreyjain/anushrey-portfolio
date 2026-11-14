@@ -1,47 +1,71 @@
 import React from "react";
-import { IoIosArrowRoundUp } from "react-icons/io";
+import { motion } from "framer-motion";
+import { BsArrowUpRight } from "react-icons/bs";
+import Sparkle from "./Sparkle";
+import RollText from "./RollText";
 
-const ExperienceCard = ({ item, ...property }) => {
+const ExperienceCard = ({ item, index }) => {
+  const isCurrent = /present/i.test(item.duration);
+  const columns =
+    item.list.length === 2 ? "lg:grid-cols-2 lg:max-w-4xl" : "lg:grid-cols-3";
+
   return (
-    <div className="flex flex-col justify-between lg:gap-5 w-full max-w-[101.25rem] mx-auto">
-      <div className="">
-        <h2 className="text-2xl group lg:text-4xl w-full font-semibold underline 
-        cursor-pointer lg:hover:text-zinc-300 transition-all text-zinc-300
-         lg:text-zinc-400">
-          <a
-            href={item.href}
-            target="_blank"
-            className="w-full justify-between flex items-end gap-0.5"
-          >
-            {item.company}
-            <span className="lg:group-hover:-translate-y-0.5 lg:group-hover:translate-x-0.5 
-            transition-all rotate-[40deg]">
-              <IoIosArrowRoundUp />
-            </span>
-          </a>
-        </h2>
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="border-t border-line first:border-0 py-12 lg:py-20"
+    >
+      {/* Header wraps naturally: dates drop under the name when space is tight */}
+      <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+        <div className="min-w-0 max-w-full">
+          <span className="eyebrow !text-ink-faint">
+            ({String(index + 1).padStart(2, "0")})
+          </span>
+          <h3 className="mt-4 text-[2.2rem] sm:text-5xl lg:text-6xl leading-[1.08] text-ink-bright">
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <RollText>{item.company}</RollText>
+              <span className="arrow-circle !h-9 !w-9 ml-4 align-middle">
+                <BsArrowUpRight size={12} />
+              </span>
+            </a>
+          </h3>
+          <p className="mt-3 font-serif italic text-xl lg:text-2xl text-ink-muted">
+            {item.profile}
+          </p>
+        </div>
 
-        <h2 className="text-xl lg:text-2xl font-medium text-zinc-400 mt-1 lg:mt-3">
-          {item.profile}
-        </h2>
-        <h2 className="text-sm lg:text-base font-medium text-zinc-400">
-          {item.duration}
-        </h2>
+        <div className="flex flex-col items-start gap-2 sm:items-end">
+          <span className="eyebrow !text-ink">{item.duration}</span>
+          {isCurrent && (
+            <span className="flex items-center gap-2 font-serif italic text-base text-accent">
+              <Sparkle size={11} className="spin-slow" />
+              Currently here
+            </span>
+          )}
+        </div>
       </div>
-      <div className="text-base">
-        <p className="text-sm text-zinc-400 lg:text-white lg:tracking-wide 
-        lg:text-base lg:leading-relaxed mb-3">
-          {item?.tagline}
-        </p>
-        <ul className="text-sm lg:text-lg list-disc
-         text-zinc-400 lg:text-white list-inside lg:tracking-wide 
-         lg:leading-relaxed flex flex-col gap-2 lg:gap-3">
-          {item?.list.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+
+      {/* Highlights sit side by side on wide screens, stack on small ones */}
+      <ul className={`mt-10 lg:mt-14 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 ${columns}`}>
+        {item.list.map((point, i) => (
+          <li key={i} className="flex flex-col gap-3">
+            <span className="eyebrow !text-accent">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <p className="text-base lg:text-[1.05rem] text-ink-muted leading-relaxed">
+              {point.replace(/\s+/g, " ")}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </motion.article>
   );
 };
 

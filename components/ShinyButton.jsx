@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
-import { HiDownload } from 'react-icons/hi';
 
+// Ghost button with the sliding shine on the text and the glowing border sweep.
 const ShinyButton = ({ children }) => {
   return (
-    <motion.button
+    <motion.span
       initial={{ "--x": "100%", scale: 1 }}
       animate={{ "--x": "-100%" }}
       whileTap={{ scale: 0.97 }}
       transition={{
         repeat: Infinity,
         repeatType: "loop",
-        repeatDelay: 0.1, // Reduced from 0.5 to 0.2
+        repeatDelay: 0.1,
         duration: 0.5,
         type: "spring",
         stiffness: 20,
@@ -24,15 +24,14 @@ const ShinyButton = ({ children }) => {
           mass: 0.1,
         },
       }}
-      className="px-7 py-3 rounded-full relative radial-gradient group hover:scale-105"
+      className="btn btn-cta border border-[color:var(--border-strong)] relative radial-gradient group"
     >
-      <span className="text-gray-50 lg:group-hover:scale-105 
-      lg:active:scale-105 transition group flex items-center gap-3 tracking-wide h-full w-full relative linear-mask">
+      <span className="text-ink flex items-center gap-[0.6rem] relative linear-mask">
         {children}
       </span>
-      <span className="block absolute inset-0 rounded-full p-px lg:group-hover:scale-105  linear-overlay" />
-    </motion.button>
-  )
-}
+      <span className="block absolute -inset-px rounded-ds p-px linear-overlay" />
+    </motion.span>
+  );
+};
 
-export default ShinyButton
+export default ShinyButton;

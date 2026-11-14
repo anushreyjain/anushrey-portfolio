@@ -1,60 +1,29 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import SectionHeading from "./SectionHeading";
+import React from "react";
 import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import SkillCircle from "./SkillCircle";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import Corners from "./Corners";
+import Sparkle from "./Sparkle";
 
-const getRandomAngle = () => {
-  return Math.floor(Math.random() * 360);
-};
-
-const Skills = () => {
-  const isDesktopOrLaptop = useMediaQuery("(min-width: 960px)");
-
-  const fadeInAnimationVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-    animate: (index) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.05 * index,
-      },
-    }),
-  };
-
-  const [gradientAngles, setGradientAngles] = useState([]);
-
-  useEffect(() => {
-    const angles = skillsData.map(() => getRandomAngle());
-    setGradientAngles(angles);
-  }, []);
-
-  return (
-    <section
-      className="w-full  text-center"
-    >
-      <div className="grid md:grid-cols-5 lg:grid-cols-7 grid-cols-3 self-center 
-      items-stretch gap-x-5 gap-y-8 lg:gap-x-10 lg:gap-y-16 w-full pt-10 lg:pt-16 lg:py-10">
-        {skillsData.map((item, index) => (
-          <SkillCircle
-            key={index}
-            variants={fadeInAnimationVariants}
-            initial={fadeInAnimationVariants.initial}
-            whileInView={fadeInAnimationVariants.animate}
-            index={index}
-            item={item}
-            gradientAngles={gradientAngles}
-          />
-        ))}
-      </div>
-    </section>
-  );
-};
+const Skills = () => (
+  <div className="relative">
+    <Corners />
+    <div className="cell-grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+      {skillsData.map((item, index) => (
+        <SkillCircle key={item.name} item={item} index={index} />
+      ))}
+      {/* Keeps every row full when the count isn't a multiple of 6 */}
+      {skillsData.length % 6 !== 0 && (
+        <div className="flex flex-col items-center justify-center gap-4 px-3 py-8 lg:py-10 text-center">
+          <span className="flex h-14 w-14 lg:h-16 lg:w-16 items-center justify-center rounded-full border border-dashed border-line-strong text-accent">
+            <Sparkle size={16} />
+          </span>
+          <span className="text-sm italic font-serif text-ink-faint">Always learning</span>
+        </div>
+      )}
+    </div>
+  </div>
+);
 
 export default Skills;
