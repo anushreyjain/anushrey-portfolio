@@ -40,14 +40,10 @@
   --overlay-color: 255, 255, 255;
 }
 
-/* Laptop scaling: the layout is built in rem, so shrinking the root size
-   scales the whole site proportionally on smaller laptop viewports
-   (e.g. 13" MacBook Air ≈ 1440-1470px wide → ~14.5px root). */
-@media (min-width: 1024px) and (max-width: 1599px) {
-  html {
-    font-size: clamp(13px, 1vw, 16px);
-  }
-}
+/* NOTE: the root font-size must NOT depend on viewport width (vw). Browser zoom
+   shrinks the CSS viewport, so a vw-based root size shrinks every rem value as
+   you zoom in and cancels the zoom (text got tiny at 110%+). Keep it at the
+   browser default so zoom and user font preferences work normally. */
 
 html {
   --line-color: rgba(255, 255, 255, 0.2);
@@ -773,36 +769,6 @@ body::-webkit-scrollbar-thumb,
   );
 }
 
-@media (-webkit-device-pixel-ratio: 1.1) {
-  * {
-      font-size: 15px;
-  }
-
-  body::-webkit-scrollbar {
-      width: 6px;
-  }
-}
-
-@media (-webkit-device-pixel-ratio: 1.25) {
-  * {
-      font-size: 13px;
-  }
-
-  body::-webkit-scrollbar {
-      width: 5px;
-  }
-}
-
-@media (-webkit-device-pixel-ratio: 1.5) {
-  * {
-      font-size: 11px;
-  }
-
-  body::-webkit-scrollbar {
-      width: 4px;
-  }
-
-}
 /* "Lite" mode: set by an inline script on low-power devices (few cores / low memory / data saver).
    Drops the decorative always-on effects; content and layout are unchanged. */
 html.lite .noise-background,
